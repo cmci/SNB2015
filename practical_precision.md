@@ -26,6 +26,7 @@
 ##精度推定の理論
 
 ガウス分布をフィッティングすることによって得られる位置情報の精度は次の式が提唱されている (Thompson, 2002)。
+
 $$
 	\langle(\sigma)\rangle = \sqrt{\frac{s^{2}}{N}+\frac{a^{2}/12}{N}+\frac{4\sqrt{\pi} s^{3}b^{2}}{aN^{2}}}
 $$
@@ -43,7 +44,7 @@ $$
 なお、二次元のガウス分布のフィッティングの場合、先ほどの式を一般化し、精度は次のような式になる。
 
 $$
-	\langle(\sigma_{i})\rangle = \sqrt{\frac{s^{2}_{i}}{N}+\frac{a^{2}/12}{N}+\frac{8\pi s^{4}b^{2}}{a^{2}N^{2}}}
+\langle(\sigma_{i})\rangle = \sqrt{\frac{s^{2}\_{i}}{N}+\frac{a^{2}/12}{N}+\frac{8\pi s^{4}b^{2}}{a^{2}N^{2}}}
 $$
 
 iはxないしはy方向を表す。
@@ -307,6 +308,9 @@ Resultsに集積した結果は、CSVファイルに保存してRなどでPrecis
 ```
 ...
 ```
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 
