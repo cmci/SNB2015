@@ -305,9 +305,43 @@ Resultsのウィンドウに表示される結果のうち、Precisionが精度�
 
 Resultsに集積した結果は、CSVファイルに保存してRなどでPrecision vs Photonsのプロットをするのが一番速いだろう。あるいはExcelでプロットすることも可能である。今回はせっかくなので、ImageJのプロット機能を使う。以下のコードを使って、プロットしよう。
 
+<https://gist.github.com/cmci/16377f3da76eed5cd455>
+
+```python
+from ij.measure import ResultsTable
+from ij.gui import Plot
+from java.awt import Color
+import jarray
+
+rt = ResultsTable.getResultsTable()
+cc = rt.getCounter()
+
+photonA = []
+precisionA = []
+for i in range(cc):
+	photonA += [rt.getValue("Photons", i)]
+	precisionA += [rt.getValue("precision", i)]
+
+photonMax = max(photonA)
+precisionMax = max(precisionA)
+photonMin = min(photonA)
+precisionMin = min(precisionA)
+
+photonAj = jarray.array(photonA,  'd')
+precisionAj = jarray.array(precisionA,  'd')
+
+fitplot = Plot("Thompson Plot", "Photons", "Precision [nm]")
+fitplot.setLimits(photonMin*0.9, photonMax*1.1, precisionMin*0.9, precisionMax*1.1)
+fitplot.setColor(Color.red)
+fitplot.addPoints(photonAj, precisionAj, Plot.CIRCLE)
+fitplot.show()
 ```
-...
-```
+
+#参考文献
+
+Thompson, R. E., Larson, D. R., & Webb, W. W. (2002). Precise nanometer localization analysis for individual fluorescent probes. Biophysical Journal, 82(5), 2775–83. doi:10.1016/S0006-3495(02)75618-X
+
+
 <script type="text/javascript"
     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
