@@ -72,7 +72,7 @@ iはxないしはy方向を表す。
 
 取得した画像はかなり高い輝度のベースラインになる。この部分を差し引くために、各フレームで輝度の平均値を取得し、この平均値を全てのピクセルから引き算する。このためのコードを以下に示す。
 
-<https://gist.github.com/cmci/be839c4dfb09b4cd395f>
+<https://gist.github.com/miura/be839c4dfb09b4cd395f>
 
 ```python
 # subtract mean
@@ -116,7 +116,7 @@ imp.updateAndDraw()
 
 この状態で、以下のコード（gaussFitPrecision1D.py）を実行する。
 
-<https://gist.github.com/cmci/d3c8eadb2a69abf04858>
+<https://gist.github.com/miura/d3c8eadb2a69abf04858>
 
 ``` python
 from ij import IJ
@@ -305,7 +305,7 @@ Resultsのウィンドウに表示される結果のうち、Precisionが精度�
 
 Resultsに集積した結果は、CSVファイルに保存してRなどでPrecision vs Photonsのプロットをするのが一番速いだろう。あるいはExcelでプロットすることも可能である。今回はせっかくなので、ImageJのプロット機能を使う。以下のコードを使って、プロットしよう。
 
-<https://gist.github.com/cmci/16377f3da76eed5cd455>
+<https://gist.github.com/miura/16377f3da76eed5cd455>
 
 ```python
 from ij.measure import ResultsTable
