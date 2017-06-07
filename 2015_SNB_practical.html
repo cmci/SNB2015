@@ -1,0 +1,1690 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>2015_SNB_practical</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, 'Hiragino Kaku Gothic ProN', arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+</head>
+<body>
+<h1 id="toc_0">第三回少数性生物学トレーニングコース　画像解析</h1>
+
+<p>三浦耕太　<a href="http://cmci.embl.de">http://cmci.embl.de</a><br>
+所属：　   </p>
+
+<ol>
+<li> 自然科学研究機構研究力推進本部欧州拠点</li>
+<li> 基礎生物学研究所</li>
+<li> EMBL・先端光学顕微鏡施設・分子細胞イメージングセンター（ドイツ）</li>
+</ol>
+
+<p>20150804,5 於　吹田・大阪大学産業科学研究所</p>
+
+<p>[toc]</p>
+
+<h1 id="toc_1">目的</h1>
+
+<ol>
+<li>ImageJのGUIを使って基礎的な画像処理・解析を学ぶ。</li>
+<li>JythonプログラミングによってImageJを使う方法を学ぶ。</li>
+<li>新井さんのPTAjをJythonで操作する方法を知る。</li>
+<li>大量の画像データのトラッキングをJythonからPTAjを使うことで可能にする。</li>
+<li>輝点の位置測定の精度を算出する。</li>
+</ol>
+
+<h1 id="toc_2">序</h1>
+
+<p>画像解析により現象を定量化し統計的に分析することは生物学における重要な技術である。現在、画像データはどんどん複雑化しており（次元、データの数の増大）、さらに複数の画像処理アルゴリズムを組み合わせて解析を行うことが多くなった現在、解析を行うにはなんらかのプログラミングが必要となる。</p>
+
+<p>今回の実習では簡単なプログラミングを使った画像解析と統計的な分析を学ぶ。ツールとしてはImageJを用いる予定である。解析対象は実習期間中に取得する膜上を運動するTransferrinの動画像データである。このデータを分析し、実験条件下におけるTransferrinの拡散定数を推定することが目的となる。このために、Transferrinのトラッキングを<a href="https://github.com/arayoshipta/projectPTAj">新井由之さんが開発したImageJのプラグインPTAj</a>を使って行う。トラッキングによりまず座標の時系列を得る。次にこのデータから、平均自乗距離法（MSD, Mean Square Displacement）の計算を行う（MSDの計算もPTAjに含まれている）。MSD vs. Time Scale のフィッティングを行い、拡散定数の推定を行う。</p>
+
+<p>データがひとつだけであれば、手動で解析を行い結果を得ることは十分可能である。大量のデータを解析したい場合にも労力さえ厭わなければすべてを手動でできるが、解析に要する労力の増大、それに比例するモーティベーションの低下、それにともなう測定精度の低下が生じる。このためまず手動では時間のかかるステップをそれぞれ自動化し、さらにそれらを組み合わせて全体を一つのスクリプトで処理できるようにする。こうした処理の自動化の利点は、今回の実習の場合では画像の前処理やトラッキングのパラメータを変更してすべてのデータを解析し直したいときに、スクリプト内のパラメータを書き直すことで気軽にトライできる、ということにもある。手動であれば、「使っているパラメータがどうも具合悪い」といったときに絶望的な気分に陥ることは避けがたい。</p>
+
+<p>Javaで書かれているプログラムは、PythonをJavaで実装したJythonを使ってスクリプトを書くことができる。今回の実習では、Fiji（ImageJのディストリビューション）のスクリプトエディターを使う。Jythonの基礎、さらにファイルシステムに保存された画像ファイルへのアクセス、プラグインのクラスの使い方などを学ぶ。このことで、Transferrinの拡散定数推定を、多くの画像データをもとに行うスクリプトを書けるようになることを目指す。</p>
+
+<p>ImageJはご存知のように誰もがダウンロードしてすぐに使うことのできるパブリックドメインの画像処理・解析ソフトである。GUIを使ったマウスのみによる操作からJavaプログラミングによる機能の追加、クラスタを使った大規模な計算まで幅広い使用が可能であること、数多くの研究者・開発者が関わっていることなどから、生物学研究者にとってその習得にはさまざまな利点がある。今回の実習では、GUIの基本的な使い方を概観した後に、JythonのスクリプトでImageJの機能を使うことを学習する。</p>
+
+<p>なお、GUIによる一般的な使い方は下記にリンクするCMCIのウェブサイトから入手可能な教科書に網羅的に記載されており自習可能である。また、ImageJには独自のマクロ言語があるが、今回の実習では使わない。</p>
+
+<p>ImageJ Textbooks</p>
+
+<p><a href="http://cmci.embl.de/documents/ijcourses">http://cmci.embl.de/documents/ijcourses</a></p>
+
+<h1 id="toc_3">実習の準備</h1>
+
+<p>まずウェブブラウザのブックマークに入れておいて欲しいサイトがある。ImageJの本家。</p>
+
+<p><a href="http://imagej.net">http://imagej.net</a></p>
+
+<p>基本的な情報はこちらからアクセス可能である。</p>
+
+<h2 id="toc_4">Fijiのインストール</h2>
+
+<p>Fijiは数多くあるImageJのディストリビューションの一つである。まず次のサイトからそれぞれのOSに適合したインストーラをダウンロードする。</p>
+
+<p>なお、目下Fijiは、内部でつかっているライブラリを大幅に次世代のImageJ2に移行しつつあり、作動が不安定な部分がある。このため、最新のバージョンではなく、&quot;Life Line Version&quot;と呼ばれる安定版のうち、2014年11月25日のものを使うことをおすすめする。</p>
+
+<p><a href="http://fiji.sc/Downloads">http://fiji.sc/Downloads</a></p>
+
+<p>上記ダウンロードページのインストールの仕方を読み、圧縮ファイルを解凍した後、所定のスッテプにしたがいFijiをインストールする。完了したら、Fijiメニューの</p>
+
+<p><code>[Help &gt; Update Fiji]</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup></p>
+
+<p>によってプログラムを最新の状態にする。アップデータのモジュール自体が新しくなるなどの場合、何度かアップデートとFijiの再起動を繰り返すことが必要になる。</p>
+
+<h3 id="toc_5">Fijiに関するもう少し詳しい解説</h3>
+
+<p>Fijiは複数の研究者や開発者がGitを通じて継続的に機能を追加・修正しているシステムという特徴がある。このためコードはすべてオープンであるが、科学研究において使われるすべてのコードはオープンでなければ科学的な評価ができない、という立場からもオープンソースを推進している。ユーザーの立場から眺めると、ImageJに比べて機能がとても多い。まずなんのためにどの機能を使ったら良いのか、という点でつまずくケースを多く見かける。とはいえ、習熟した暁には多様な機能を複合的に使うことができるようになり、更にはプラグインなどを独自に開発する際に、自前ですべてを書くことなくさまざまなライブラリを組み合わせることで効率的に目的の機能の実装を果たすことが可能になる。今回Fijiを使用する主な理由は、Jythonでスクリプトを書く際にScript Editorが簡便だからである。</p>
+
+<h3 id="toc_6">演習用画像・プラグインのダウンロード</h3>
+
+<h4 id="toc_7">演習用の画像</h4>
+
+<p>今回の実習では、直接ダウンロードのリンクからプラグインやサンプル画像をそれぞれ入手する。</p>
+
+<ul>
+<li>サンプル画像のパッケージ
+
+<ul>
+<li><a href="https://www.dropbox.com/s/d3ewlmh6ugw80dc/samples.zip">https://www.dropbox.com/s/d3ewlmh6ugw80dc/samples.zip</a> [57Mb]</li>
+</ul></li>
+</ul>
+
+<h4 id="toc_8">プラグインのインストール</h4>
+
+<p>プラグインのインストール方法はぜひとも知っておくべきである。二つの方法があり、方法１が最新の方法であるが、インストールしたいプラグインがFijiのアップデートサイトに登録されていないと使えない。この手段は2013年後半に加わったのでまだ数はかぎられるが今後どんどん増えていくだろう。プラグインがアップグレードすると、自動的にローカルでも認識して更新してくれる。方法２は従来の方法で、どのようなプラグインでもこの方法でインストールできる。</p>
+
+<p><strong>方法1</strong></p>
+
+<p>Fijiを立ち上げ、Lのキーを叩いてコマンド・ファインダを開き、[Update Fiji]を実行しよう。Fijiがプラグインの更新状況を調べるのに若干時間がかかるが、しばらくするとImageJ Updaterというウィンドウが表示される。もしすべてのプラグインが最新の状態にあるならば、&quot;Your ImageJ is up to date!&quot;というウィンドウが表示され、なにもリストされていない状態で表示されるだろう。</p>
+
+<p><img src="imgs/updator.png" alt="アップデータ"></p>
+
+<p>図 ImageJアップデータ</p>
+
+<p>更新が必要なものがある場合にはそれらのファイルがリストされるので、&quot;Apply Changes&quot;をクリックすればそれらすべてのファイルが自動的に置き換えられ、Fijiに最初から入っているさまざまなプラグインの更新は完了する。これはいわば、Fiji純正のアップデートサイトに対してのみ更新状況を問い合わせているということになる。</p>
+
+<p>自分でアップデートサイトを追加すれば、そのサイトのプラグインをインストールするのみならず更新状況を自動的に管理できるようになる。左下にある&quot;Manage update sites&quot;をクリックする。新しいウィンドウが立ち上がり、図のように、追加可能なアップデートサイトがリストされるはずである。デフォルトでチェックが入っている最初の二つはImageJとFijiのサイトである。これはまさにImageJとFijiそのものであり、上で述べた「純正のアップデートサイト」である。それに続く他のサイトが各自の必要に応じて登録するサイトである。</p>
+
+<p><img src="imgs/manageUpdateSites.png" alt="アップデートサイトのリスト"></p>
+
+<p>図 アップデートサイトのリスト　</p>
+
+<p>今回はCMCI-EMBLというサイトにチェックを入れ、Addのボタンをクリックして登録しよう。この時点でなにもおこらないが、Closeをクリックしてウィンドウを閉じ、Updatorのウィンドウを見ると、新たに&quot;plugins/EMBL_sampleimages.jar&quot;という行が加わっているはずだ。右側には&quot;Install it&quot;と表示されているはずである。そこで&quot;Apply Changes&quot;をクリックするとダウンロードとインストールが行われる。このあとリスタートせよ、というウィンドウが表示されるので、Fijiを再起動するとメニューバーにEMBLという新しい項目が追加されているはずだ。サンプルの画像は、[EMBL &gt; Samples &gt;]以下にリストされている。今回使用する画像はすべてここにある。</p>
+
+<p><strong>方法2</strong></p>
+
+<p>次のページのプラグインをダウンロードする。</p>
+
+<ul>
+<li><a href="http://cmci.github.io/CourseUtil/">http://cmci.github.io/CourseUtil/</a></li>
+</ul>
+
+<p>あるいはCMCIのトップページ（cmci.embl.de）からの場合は、</p>
+
+<p><code>Downloads &gt; Sample Image Loader</code></p>
+
+<p>を辿る。ローカルに保存したファイルの名前は</p>
+
+<p><code>EMBL_sampleimages***.jar</code></p>
+
+<p>(***はバージョンの番号)のはずである。これを確認したら、Fijiのメニューから、</p>
+
+<p><code>[Plugins &gt; Install Plugin]</code></p>
+
+<p>を行い、</p>
+
+<p><code>EMBL_sampleimages***.jar</code></p>
+
+<p>を選ぶ。インストールが成功するとメニューに&quot;EMBL&quot;という項目が現れる。もしこの項目が現れなかったら、</p>
+
+<p><code>[Help &gt; Refresh Menus]</code></p>
+
+<p>により、メニューを再読み込みする。うまくインストールの完了をチェックするため、</p>
+
+<p><code>[EMBL &gt; Samples &gt; blobs.tif]</code></p>
+
+<p>により、画像“blobs.tif”をネットを通じてロードできることを確認する。</p>
+
+<p>なお、プラグインの追加は、より簡単にプラグインのjarファイルをメニューバーにドラッグドロップすることでも可能である。</p>
+
+<h3 id="toc_9">他のプラグイン</h3>
+
+<h4 id="toc_10">Running Z Projector</h4>
+
+<p>フレーム1-3、2-4、3-5、といった順番で数フレームの平均画像を生成する。マイクロマネージャを開発しているNico Stuurmanが書いたプラグイン。</p>
+
+<ul>
+<li>サイト
+
+<ul>
+<li><a href="http://valelab.ucsf.edu/%7Enico/IJplugins/Running_ZProjector.html">http://valelab.ucsf.edu/~nico/IJplugins/Running_ZProjector.html</a></li>
+</ul></li>
+<li>プラグイン
+
+<ul>
+<li><a href="http://valelab.ucsf.edu/%7Enico/IJplugins/download/plugins/Stacks/Running_ZProjector.class">http://valelab.ucsf.edu/~nico/IJplugins/download/plugins/Stacks/Running_ZProjector.class</a></li>
+</ul></li>
+</ul>
+
+<h4 id="toc_11">Particle Tracker</h4>
+
+<p>自動トラッキングのプラグイン。細胞内を動くウィルスをトラッキングするために開発された。Ivo SbalzariniがETHの院生だったころに書いたMatlabのコードを、Guy LevyとJanick CardinaleがImageJにマイグレートしたプラグイン。</p>
+
+<ul>
+<li>サイト
+
+<ul>
+<li><a href="http://mosaic.mpi-cbg.de/?q=downloads/imageJ">http://mosaic.mpi-cbg.de/?q=downloads/imageJ</a></li>
+</ul></li>
+<li>マニュアル
+
+<ul>
+<li><a href="http://mosaic.mpi-cbg.de/ParticleTracker/">http://mosaic.mpi-cbg.de/ParticleTracker/</a></li>
+</ul></li>
+<li>プラグイン
+
+<ul>
+<li><a href="http://mosaic.mpi-cbg.de/Downloads/Mosaic_ToolSuite.jar">http://mosaic.mpi-cbg.de/Downloads/Mosaic_ToolSuite.jar</a></li>
+</ul></li>
+<li>Gitrepo
+
+<ul>
+<li><a href="https://git.mpi-cbg.de/gitweb/?p=ImageJ.git;a=summary">https://git.mpi-cbg.de/gitweb/?p=ImageJ.git;a=summary</a></li>
+</ul></li>
+</ul>
+
+<h4 id="toc_12">PTAj (developer version)</h4>
+
+<p>新井さんが開発した一分子トラッキング用のプラグイン。当日ダウンロードしてインストールしてください。点状のシグナルに対して2次元ガウス分布をフィッティングして中心の位置を推定することができる。</p>
+
+<ul>
+<li>サイト
+
+<ul>
+<li><a href="http://www.sanken.osaka-u.ac.jp/labs/bse/ImageJcontents/frameImageJ.html">http://www.sanken.osaka-u.ac.jp/labs/bse/ImageJcontents/frameImageJ.html</a></li>
+</ul></li>
+<li>プラグイン
+
+<ul>
+<li><a href="https://github.com/cmci/projectPTAj/blob/master/target/PTA_-1.0.0.jar?raw=true">https://github.com/cmci/projectPTAj/blob/master/target/PTA_-1.0.0.jar?raw=true</a></li>
+</ul></li>
+</ul>
+
+<p><a href="http://cmci.github.io/projectPTAj/">Javadoc</a></p>
+
+<h1 id="toc_13">画像処理・解析の基礎</h1>
+
+<p>画像処理・解析に関していくつかのトピックを取り上げる。</p>
+
+<h2 id="toc_14">数をかぞえる</h2>
+
+<p>デジタル画像は数値の分布である。我々がモノと認識する対象を対象であるとするには、なんらかの定義を与える必要がある。これを分節化（segmentation）という。一定の定義にしたがって画像はモノの領域と背景の領域に分類される。分節化に仕方にはいろいろあるが、今回は教師つきの機械学習によってそれぞれのピクセルをモノと背景に分割し、モノの数をかぞえる方法を紹介する。</p>
+
+<p>より詳しくは教科書の1.4.4節を参照にせよ。</p>
+
+<ul>
+<li>サンプル画像　rice.tif</li>
+</ul>
+
+<h2 id="toc_15">多次元画像の扱い</h2>
+
+<p>多次元画像（たとえば複数チャネルの3次元時系列など）の取り扱いは、コンピュータのスクリーンが二次元であることから自ずから限界がある。可視化・編集などで次元を下げて扱う、ということが中心になる。ここではImageJに実装されている工夫をいくつか紹介する。</p>
+
+<p>サンプル画像</p>
+
+<ul>
+<li>wt1.tif</li>
+<li>listeriacells.stk</li>
+<li>mitosis<em>anaphase</em>3D.tif</li>
+</ul>
+
+<h3 id="toc_16">可視化</h3>
+
+<p>教科書の1.1.9節を参照にせよ。</p>
+
+<ul>
+<li>Projections</li>
+<li>t-Color coding</li>
+<li>OrthoView</li>
+<li>3Dviewer</li>
+</ul>
+
+<h3 id="toc_17">編集</h3>
+
+<p>教科書の1.1.11節を参照にせよ。</p>
+
+<h2 id="toc_18">時系列：輝度の測定</h2>
+
+<p>教科書の1.4節を参照にせよ。</p>
+
+<ul>
+<li>輝度の時系列の取得</li>
+<li>ブリーチング(蛍光強度減衰)の校正</li>
+<li>偽ハイパスフィルタ</li>
+</ul>
+
+<p>サンプル画像　virus.tif</p>
+
+<h2 id="toc_19">時系列：運動の測定</h2>
+
+<p>教科書の1.5節を参照にせよ。</p>
+
+<ul>
+<li>時系列画像の差分
+
+<ul>
+<li>サンプル　1703-2(3s-20s).stk</li>
+<li><a href="https://www.dropbox.com/s/jo5tdgn6wqt77bw/1703-2%283s-20s%29.stk">https://www.dropbox.com/s/jo5tdgn6wqt77bw/1703-2%283s-20s%29.stk</a></li>
+</ul></li>
+<li>カイモグラフの作成と測定
+
+<ul>
+<li>サンプル　eb1_8b.tif </li>
+<li><a href="https://www.dropbox.com/s/u1qkhgunamq9uou/eb1_8b.tif">https://www.dropbox.com/s/u1qkhgunamq9uou/eb1_8b.tif</a></li>
+<li>速度推定用のマクロ　</li>
+<li><a href="https://gist.github.com/anonymous/6150781">https://gist.github.com/anonymous/6150781</a></li>
+</ul></li>
+<li>自動トラッキング　Particle Tracker
+
+<ul>
+<li>サンプル　TransportOfEndosomalVirus.tif</li>
+<li><a href="https://www.dropbox.com/s/pwvezy2dey4n73y/TransportOfEndosomalVirus.tif">https://www.dropbox.com/s/pwvezy2dey4n73y/TransportOfEndosomalVirus.tif</a> </li>
+</ul></li>
+</ul>
+
+<h1 id="toc_20">Jythonスクリプトの書き方</h1>
+
+<h2 id="toc_21">序論</h2>
+
+<p>ImageJには独自のマクロ言語が実装されており、多くの作業はマクロで記述可能である。とはいえImageJのマクロはGUIを経由したスクリプトであるため、ヘッドレス（GUIなし）で使用する際にはさまざまな制限が生じる。また、マクロの関数が用意されていないプラグインを使う場合などに不自由を感じることがある。これらの問題があるときにはJavaの仕様（APIと呼ばれる）に直接アクセスできるスクリプト言語を使う必要がある。</p>
+
+<p>ImageJにおけるスクリプティング言語としては他にJavascript(Rhino)や、Jython
+(Javaで実装したPython)などがある。処理速度を高めたいならば、ClojureもしくはScalaを使う。JavascriptはImageJにおいてそのまま使うことが出来る。また、Javascriptはコマンドレコーダの記録言語としても実装されており、マクロと同じように記述することができる。ただしこの場合の運用は、マクロと同程度の機能に限られるので、Javadocを駆使しながらコーディングを行うのでなければマクロでプログラムを書くことをお勧めする（今回の実習ではマクロの学習は割愛する）。</p>
+
+<p>JythonはPythonの文法であること、Jython自体に実装されているさまざまな機能があることから（特に文字列操作、ファイルシステムへのIOにおいてさまざまなメリットがある）、Jythonを使う研究者が多い。ImageJではJythonのファイルを実行した時にJythonのライブラリが存在しないことがわかると、ImageJはJythonのライブラリを自動的にダウンロードする。Fijiでは最初からJythonが導入されている。</p>
+
+<p>今回はJythonによるスクリプティングを学ぶ。ImageJのさまざまなクラス群（ImageJはそれぞれ特定の機能をもつJavaでプログラムされたクラスが複数集まった存在であると考えると良い）を扱うには、クラス群の諸機能を参照するためのレファレンスが必要になる。Javadocと呼ばれる仕様書（ImageJの場合にはImageJのJavadoc）がこれにあたり、プログラミングの基本を習得したあとはJavadocを繰りながらスクリプトを書くことになる。ImageJのJavadocは次のリンク先にある。</p>
+
+<p><a href="http://imagej.net/developer/api/">http://imagej.net/developer/api/</a></p>
+
+<h2 id="toc_22">参照になるページ</h2>
+
+<p>Jythonそのものに関しては、</p>
+
+<p><a href="http://www.jython.org/docs/">http://www.jython.org/docs/</a></p>
+
+<p>以下のリンクは、今後JythonでImageJ/Fijiのスクリプティングを行う際に参考になるページである。</p>
+
+<p><a href="http://fiji.sc/Jython_Scripting">Jython Tutorial @ Fiji wiki</a></p>
+
+<p><a href="http://cmci.embl.de/documents/120206pyip_cooking/python_imagej_cookbook">Jython Cookbook @ CMCI</a></p>
+
+<h2 id="toc_23">はじめの一歩</h2>
+
+<h3 id="toc_24">スクリプトエディタの使い方</h3>
+
+<p>スクリプトエディタ(Script Editor)はFijiのメニューから</p>
+
+<p>[File &gt; New &gt; Script]</p>
+
+<p>を選ぶことで開始できる。より簡便には</p>
+
+<p>Ctrl-L (win)</p>
+
+<p>Command-L (osx)</p>
+
+<p>のショートカットキーでコマンドファインダを呼び出し、&#39;Editor&#39;と入力すると、Script Editorがトップに選ばれるのでそれを選択しリターンキーを押せば良い。</p>
+
+<p>スクリプトエディタには独自のメニューがついている。そのうちの一つが&#39;language&#39;であり、この項目をクリックして、&#39;Python&#39;を選ぶことで、Jythonのコマンドを解釈させることができるようになる。</p>
+
+<p>エディタは上下ふたつのパネルにわかれており、上がスクリプトを入力するテキストフィールド、下が出力フィールドになっている。間にはRunボタンが左側に、右側にはStdout（通常の出力）とStderr（エラー出力）の二種を選ぶボタンがあり、デフォルトでは通常の出力が表示される。</p>
+
+<h3 id="toc_25">Hello World</h3>
+
+<p>スクリプトエディタのテキストフィールド（上部）に以下のように入力する。</p>
+
+<pre class="line-numbers"><code class="language-python">print &quot;Hello World!&quot;</code></pre>
+
+<p>左下にある&#39;Run&#39;ボタンをクリックすると、下側のテキストフィールドに</p>
+
+<pre><code>Hello World!</code></pre>
+
+<p>と表示されるはずである。この場合、出力先はスクリプトエディタである。<code>print</code>はJythonのコマンドであり、そのあとのスペースに続く文字列ないしは数字を出力せよ、というコマンドである。</p>
+
+<p>出力先をImageJのログウィンドウにしたい場合は</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+IJ.log(&quot;Hello World!&quot;)</code></pre>
+
+<p>とする。とりあえず、出力そのものに関わる二行目について。この場合の表記はprintの場合とことなり、IJ.logというコマンドのあとに出力される文字が括弧で囲まれている。これは、IJ.logがJavaの機能であるため、このようなことになる。IJ.logというコマンドについての詳細は後述する。</p>
+
+<p>一行目の&quot;from&quot;ではじまる部分は、インポート文とよばれる。「ijというパッケージから、IJを使いますのでよろしく」という意味である。先ほどの<code>print</code>というコマンドは、Jythonに最初から搭載されているコマンドである。一方、こうしたデフォルトでは入っていないコマンドは、インポート文であらかじめ「これ、使いますので、機能を読み込んでおいてください」と宣言する必要がある。<code>from ij</code>は、さまざまな機能をまとめている”パッケージ”の名前で、<code>IJ</code>は、そのパッケージに含まれている機能である。IJの中にはさらに細い機能が含まれていて、logはその１つである。</p>
+
+<p>さて、さらにコマンドを付け加えてみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+IJ.log(&quot;Hello World!&quot;)
+IJ.log(&quot;\\Clear&quot;)</code></pre>
+
+<p>なおバックスラッシュ(<code>\</code>)は日本語のOS環境では、円記号（¥）として表示される。機能的には同等の役割を果たす。</p>
+
+<p>この二行のコードを実行（Runをクリックすること）すると、ログウィンドウにはなにも表示されない。一行目と二行目を入れ替えてみる。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+IJ.log(&quot;\\Clear&quot;)
+IJ.log(&quot;Hello World!&quot;)</code></pre>
+
+<p>この場合には、Hello Worldが表示される。<code>\\Clear</code>は最初にバックスラッシュが２つ連続して存在することによって、テキストそのものではなく、一種のコマンドを意味することになる（<code>\\</code>はエスケープシークエンスと呼ばれる）。<code>\\Clear</code>はログウィンドウをクリアしてまっさらにせよ、というコマンドである。</p>
+
+<p>上の二行のコマンドの２つの例における出力の差がプログラミングの本質である。すなわち、コマンドは上から下にむかって次々に実行される。したがってどのような順番でコマンドが書かれているか、ということが出力の内容を決定する。</p>
+
+<h2 id="toc_26">変数の扱い</h2>
+
+<p>さて、次の一行を入力して実行してみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">print 1 + 2</code></pre>
+
+<p>出力パネルに</p>
+
+<pre><code>3</code></pre>
+
+<p>と表示されるはずである。これは、<code>print</code>コマンドに続く数式を、数字として計算した後にその結果がプリントされている。次のように書き換えて実行してみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">a = 1
+b = 2
+c = a + b
+print c</code></pre>
+
+<p>出力パネルには先ほどと同じく３が表示されるはずである。ただしこの場合、最初に変数<code>a</code>に1が代入され、次に<code>b</code>に2が代入され、３行目ではこれらの変数を使って加算が行われその結果が変数<code>c</code>に代入されている。最後の行ではこの変数<code>c</code>がコマンド<code>print</code>に渡されて、cが保持している値が出力される。</p>
+
+<blockquote>
+<p>演習：aの値、bの値を別の数に変えて、出力結果が変わることを確かめよ。</p>
+</blockquote>
+
+<p>以上は数字である。変数には数字ではなく、文字列を代入することもできる。</p>
+
+<pre class="line-numbers"><code class="language-python">a = &quot;Hello&quot;
+b = &quot; World&quot;
+c = a + b
+print c</code></pre>
+
+<p>出力は<code>Hello World</code>となっているはずである。ここで注意して欲しいのは三行目の“数式”である。ここではプラスのサインがaとbの間にあるが、起こることは算数の足し算ではない。aの文字列の後にbが追加される(concatenateという)。Helloとworldの数学的な足し算がなにを結果するのかはわからないが、普通そのような足し算はしない。そこで、スクリプトを解釈しているJythonインタプリタ（解釈機）は、変数が保持している値が数字であるか文字列であるかを分別してプラスサインがなにを実行するのかを切り替えていることがわかる。</p>
+
+<p>文字列であることは、ダブルクオートで文字を囲むことによって明示している。このことから次のようなこともできる。</p>
+
+<pre class="line-numbers"><code class="language-python">a = &quot;1&quot;
+b = &quot;2&quot;
+c = a + b
+print c</code></pre>
+
+<p>この出力結果は</p>
+
+<pre><code>12</code></pre>
+
+<p>となる。なぜならば、数字の1と2がそれぞれダブルクォートで囲まれているため、ナマの数字ではなく文字列の数字として変数に格納されることになるから、三行目のプラスサインは算数ではなく文字列の追加として機能することになるからである。</p>
+
+<p>さて、少々ここから発展させる。変数は、数字や文字列のみならず、画像などのより複雑な形式のオブジェクトも代入させ、そのオブジェクトを保持させることができる（オブジェクトは文字通り「モノ」とおもっていただければよい。あるいは「ブツ」でもよい）。たとえば、であるが、</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+imp = IJ.openImage(&#39;/Users/miura/image.tif&#39;)</code></pre>
+
+<p>としたときには、<code>imp</code>という変数に画像が与えられている。<code>imp</code>を画像だ、と思って以降のスクリプトをしたためることになる。たとえばこれに続き</p>
+
+<pre class="line-numbers"><code class="language-python">imp.show()</code></pre>
+
+<p>と次の行に書くと、画像がデスクトップに表示されることになる。ここで詳しいことはかかないが、<code>IJ.openImage</code>は、画像ファイルを読み込むためのコマンド、その引数（括弧内の文字）はファイルの絶対パスである。また、<code>imp.show()</code>は、変数<code>imp</code>に画像が与えられているため、画像に付随するメソッド<code>show()</code>を実行せよ、ということであると理解してもらえればよい。より詳しい話は後ほど詳述する。</p>
+
+<p>なお、絶対パス、とは、パソコンの中のその場所にそのファイルがあるかを示す住所のようなものである。パソコンを使っている人ならだれでも、ファイルがツリー上に構成されたフォルダの中のどこかにファイルを保存することを行なっているだろう。この場所がどこであるのかを示すのが絶対パスである。上の例<code>/Users/miura/image.tif</code>では、Usersフォルダの中のmiuraフォルダの中にimage.tifというファイルがあることを示している。スラッシュ<code>/</code>はパスセパレータと呼ばれ、フィルダの階層構造を上位から下位に向かってフォルダの名前ごとに区切る役割を果たしている。</p>
+
+<p>なお、ウィンドウズにおける表記は若干ことなっている。たとえば<code>c:\\Users\\miura\\image.tif</code>は、CドライブのUsersフォルダの中のmiuraフォルダの中にimage.tifがあることを示している。この場合、パスセパレーターは、2つのバックスラッシュが担っている。</p>
+
+<p>絶対パスとは別に相対パスという住所の表記法もある。はがきを送るのに郵便番号から始まる住所を書くが、家族に配達してもらうならば「二ブロック先を右に、三軒目の鈴木さん」という今いる場所から相対的に送り先を指定する宛名の書き方も可能だろう。ファイルのありかを書くのに「今いるフォルダから2つ上に上がってその下にあるGというフォルダの下のimage.tif」という表記も可能である。これを相対パスという。相対パスは、フォルダの上位構造が全く異なっていてもあるプロジェクトのフォルダの内部構造が同一であればそのプロジェクトのフォルダがどこに存在しているか関係がなくなる。プロジェクトのフォルダをあちらこちらに移動できるので便利である…のだが、今回は使わないので割愛する。</p>
+
+<h2 id="toc_27">リスト</h2>
+
+<p>ある数列をひとつのリストとしてまとめておくことが可能である。たとえば</p>
+
+<pre class="line-numbers"><code class="language-python">aa = [1, 3, 5, 17, 25]</code></pre>
+
+<p>とすると、aaは要素を５つもつリストとなる。個別の要素を取り出すには、リストを格納している変数（上の場合はaa）に続けてブラケットで要素のインデックスを指定する。インデックスはゼロから始まる。上の例で３番目の要素を取り出したければ、インデックスは２になる。上の行につづけて</p>
+
+<pre class="line-numbers"><code class="language-python">print aa[2]</code></pre>
+
+<p>とすると、５と出力されるはずである。すべての要素を出力したい場合、</p>
+
+<pre class="line-numbers"><code class="language-python">print aa</code></pre>
+
+<p>とすれば、リストがそのまま出力されるだろう。</p>
+
+<blockquote>
+<p>演習　存在しないインデックスを指定して出力しようとすると、エラーが出ることを確認せよ。エラーを解読し、理解せよ。</p>
+</blockquote>
+
+<h3 id="toc_28">range()</h3>
+
+<p>数列をリストとして生成するには次のようにする。</p>
+
+<pre class="line-numbers"><code class="language-python">bb = range(10)
+print bb</code></pre>
+
+<p>とすると、出力には</p>
+
+<blockquote>
+<p>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+</blockquote>
+
+<p>と出るはずである。<code>range(10)</code>は、0に始まり10以下までの整数の数列をリストとして生成せよ、というコマンドになる。</p>
+
+<p>引数がひとつだけすなわちrange(n)の場合、0 &lt;= k &lt; n のｋが生成される。つねに0から始まる。最初の数字を任意のものに変えるには、引数をふたつにする。</p>
+
+<pre class="line-numbers"><code class="language-python">print range(5, 10)</code></pre>
+
+<p>とすると、</p>
+
+<pre><code>[5, 6, 7, 8, 9]</code></pre>
+
+<p>と出力されるだろう。<code>range(n1, n2)</code>によって、n1 &lt;= k &lt; n2の整数kのリストが生成される。これまでの場合、数字の間隔はかならず1であったが、このステップサイズも引数を3個にすると三番目の引数として指定できる。</p>
+
+<pre class="line-numbers"><code class="language-python">print range(0, 10, 2)</code></pre>
+
+<p>出力は</p>
+
+<pre><code>[0, 2, 4, 6, 8]</code></pre>
+
+<p>となるはずである。</p>
+
+<h3 id="toc_29">len()</h3>
+
+<p>リストの長さはさまざまである。長さを知るためには<code>len</code>という関数を使う。</p>
+
+<pre class="line-numbers"><code class="language-python">print len(aa)   
+print &#39;list length:&#39;, len(aa)</code></pre>
+
+<p>この一行目は単に数字の５を出力するだろう。この数字がなにかを示すために、二行目では最初にlist length: という文字列を加えた。printに与える引数はコンマで区切ればいくつでも可能である。コンマの位置には自動的にスペースが挿入される。自分で<code>print len(range(5))</code>などを試してみればすぐにわかるだろう。</p>
+
+<h3 id="toc_30">リストは数に限らない</h3>
+
+<p>ここまで紹介したリストは数のリストであった。とはいえ、リストの内容は数に限られない。たとえば、画像もリストに含めることができる。ここでは複数のチャネルを持つ一つの画像データを、それぞれのチャネルの画像のリストに変換してみよう。</p>
+
+<pre><code>[File &gt; Open Samples &gt; Hela Cells (1.3M, 48-bit RGB)]</code></pre>
+
+<p>によって3つのチャネルをもつ画像を開いて欲しい。次のスクリプトを書いてHela細胞の画像に関して実行する。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.plugin import ChannelSplitter
+imp = IJ.getImage()
+imps = ChannelSplitter.split(imp)
+print len(imps)
+imps[0].show()
+imps[1].show()
+imps[2].show()</code></pre>
+
+<p>三行目は、現在アクティブな画像を変数<code>imp</code>として得ている。四行目ではこの画像の各チャネルの画像を、<code>imps</code>というリストとして取得している（ChannelをSplitしているわけである）。このリストが、数字ではなく画像を要素として保持しているリストの例である。五行目ではそのリストの長さを出力（3と出力されているはずである）。六行目から八行目では、それぞれのチャネルの画像を個別に表示している。リストの一番目の要素が赤のチャネル、二番目の要素が緑のチャネル、三番目の要素が青のチャネルである。</p>
+
+<h2 id="toc_31">ループ</h2>
+
+<p>リストの要素をそれぞれ独立に出力するにはつぎのようにする。</p>
+
+<pre class="line-numbers"><code class="language-python">aa = range(5)
+for a in aa:
+    print a</code></pre>
+
+<p>すこしでもプログラミングをかじったことのある人ならば、「ああ、forをつかったループですね」と思うかもしれないが、知らない方々のために解説すると、上の一行目はすでに学んだように、<code>0 &lt;= k &lt; 5</code>の数列をリストとして生成している。次の行の<code>for</code>ではじまる部分は、</p>
+
+<blockquote>
+<p>リストaaの各要素を変数aに順番に代入せよ、そして、要素ひとつ毎にその下に連なる行頭を字下げしたコードを実行せよ</p>
+</blockquote>
+
+<p>という意味である。この簡単な例の場合、繰り返し実行されるのは三行目であり、<code>a</code>の内容を出力する。全体としてみれば<code>aa</code>の要素が順繰りに出力されることになる。この場合一行だけだが、さらに同じように字下げしたコードがもし続くならば、それらもくりかえし実行される。例えば</p>
+
+<pre class="line-numbers"><code class="language-python">aa = range(5)
+for a in aa:
+    print a
+    print a*5</code></pre>
+
+<p>のようにすれば、ループ毎に二行出力されることになる。</p>
+
+<p>上の場合は、<code>range</code>によって整数のリストを作成し、それでループを行っているが、リストであればその構成要素がなんであってもループさせることができる（プログラミングを知っているひとならばイテラブルなオブジェクト、といえばすぐにわかるかもしれない）。たとえば前項で扱った3チャンネル画像を分割して表示するスクリプトを<code>for</code>を使って書きなおしてみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.plugin import ChannelSplitter   imp = IJ.getImage()
+imps = ChannelSplitter.split(imp)
+print len(imps)
+for aimp in imps:
+    aimp.show()</code></pre>
+
+<p>impsはImagePlusオブジェクトのリストである。したがってこれはそのままforループに供することが可能であり、ループ毎に変数aimpに要素が代入される。そしてループ毎に1番目のチャネルから3番目のチャネルまでが表示されるのである。</p>
+
+<p>ImageJマクロ、ないしはCなどのプログラミングに慣れている人はおそらく次のような疑問にすぐに突き当たるだろう。</p>
+
+<blockquote>
+<p>整数ではないリストをループさせるとき、インデックスを得たい場合にはどうすればよいのか？</p>
+</blockquote>
+
+<p>ふたつの解決方法がある。ひとつはインデックスでループを回す方法である。上のコードを書き換えてみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.plugin import ChannelSplitter
+imp = IJ.getImage()
+imps = ChannelSplitter.split(imp)
+print len(imps)
+for i in range(len(imps)):
+    print &quot;channel&quot;, i
+    imps[i].show()</code></pre>
+
+<p>もうひとつの方法は、enumerateを使う方法である。こちらのほうがPythonらしい使い方である。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.plugin import ChannelSplitter
+imp = IJ.getImage()
+imps = ChannelSplitter.split(imp)
+print len(imps)
+for i, aimp in enumerate(imps):
+    print &quot;channel&quot;, i
+    aimp.show()</code></pre>
+
+<p>注目して欲しいのはforの構文で返り値の変数が2つ、iとaimpになっていることである。iにはループのインデックスが入り、aimpにはリストimpsの要素が入る。</p>
+
+<h2 id="toc_32">条件</h2>
+
+<p>変数やその状態を判別して、その状況に応じてなんらかの処理を行う、といったことをしたいときには、<code>if</code> ではじまる判定式を使う。具体的には次のようなことだ。</p>
+
+<pre class="line-numbers"><code class="language-python">a = 5
+if a == 5:
+    print a</code></pre>
+
+<p>実行すると“5”という数字が出力されるだけであるが、これは二行目において、<code>a</code>が5であることを判定し、正しいことを確認した上でaが出力される。</p>
+
+<p>この2行目は等号を2つ連ねた書き方をしている。これは真偽(true or false)を判定するための式で、たとえば次のような短いコードを書いてみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">a = 5
+print a==5 </code></pre>
+
+<p>出力されるのは&quot;True&quot;である。一行目を<code>a = 10</code>と書き換えると、出力はFalseになるはずである。すなわち、<code>a==5</code>と書くことで&quot;aは5か？&quot;という疑問に真偽で解答するという形になっている。このことがわかれば次の（あまり意味がないが理解の助けにはなる）コードが理解できるだろう。</p>
+
+<pre class="line-numbers"><code class="language-python">a = 5
+if True:
+    print a</code></pre>
+
+<p>この場合、二行目に意味はない。なぜならば判定式がなくつねにTrueだからである。したがってこれは</p>
+
+<pre class="line-numbers"><code class="language-python">a = 5
+print a</code></pre>
+
+<p>というコードと変わらない。また</p>
+
+<pre class="line-numbers"><code class="language-python">a = 5
+if False:
+    print a</code></pre>
+
+<p>であれば、<code>a</code>がなんであってもなにも出力しない。</p>
+
+<p>これらを理解できれば</p>
+
+<pre class="line-numbers"><code class="language-python">a = 10
+if a == 5:
+    print a</code></pre>
+
+<p>の場合にはなにも起きないことは簡単に想像つくであろう。判定式が偽なので字下げの部分は実行されないのである。偽の場合にもなにか行うようにするには<code>else</code>を使う。</p>
+
+<pre class="line-numbers"><code class="language-python">a = 10
+if a == 5:
+    print &quot;a is 5&quot;
+else:
+    print &quot;a is not 5&quot;</code></pre>
+
+<p>のように、<code>else</code>によって付け加える。応用問題になるが</p>
+
+<pre class="line-numbers"><code class="language-python">a = 10
+if False:
+    print &quot;a is 5&quot;
+else:
+    print &quot;a is not 5&quot;</code></pre>
+
+<p>の場合にはどうなるか？</p>
+
+<p>常に&quot;a is not 5&quot;という出力がおきる。</p>
+
+<p>より実際的な<code>if</code>の例を次にみてみよう。</p>
+
+<pre class="line-numbers"><code class="language-python">filename = &quot;image.tif&quot;
+if filename.endswith(&quot;.tif&quot;):
+    print &quot;This file is a tiff file&quot;</code></pre>
+
+<p>この場合、判定式はコマンドそのもので、文字列filenameが&quot;.tif&quot;で終わっている、ということが真であるか偽であるかを判定するメソッドである。こうしたメソッドは、レファレンスサイトに行くとみつけることができる。文字列に関するページは</p>
+
+<p><a href="http://docs.python.org/release/2.5.2/lib/string-methods.html">http://docs.python.org/release/2.5.2/lib/string-methods.html</a></p>
+
+<p>である。endsWithとともにさまざまなメソッドを文字列に対して処理することができるのがわかるだろう（なお、Python2.5を参照にすれば、Jythonで実装されている機能と同じである）。</p>
+
+<h3 id="toc_33">ファイルシステムへのアクセス</h3>
+
+<p>ファイルシステムにアクセスしてファイルのリストを取得する。いくつもの方法があるが、ここではJythonに実装されているosパッケージのos.walk関数を使う。</p>
+
+<pre class="line-numbers"><code class="language-python">    from ij import IJ
+    from ij.io import DirectoryChooser
+    import os
+    srcDir = DirectoryChooser(&quot;Choose!&quot;).getDirectory()
+    IJ.log(&quot;directory: &quot;+srcDir)
+    for root, directories, filenames in os.walk(srcDir):
+        for filename in filenames:
+            if filename.endswith(&quot;.tif&quot;):
+                path = os.path.join(root, filename)
+                IJ.log(path)
+                imp = IJ.openImage(path)
+                imp.show()
+                imp.close()</code></pre>
+
+<p><strong>解説</strong></p>
+
+<ul>
+<li><code>DirectoryChooser</code>はImageJのクラスである。ここでは<code>DirectoryChooser</code>のインスタンス化と、そのメソッドの使用を一行で行なっていることに注意。すなわち<code>dc = DirectoryChooser(&quot;please select a folder&quot;)</code>というコンストラクタによるインスタンス化を行ったあとに、そのことで生成したオブジェクト（dc）を使う<code>srcDir = dc.getDirectory()</code>という２つのステップが一行でなされている。この一行で書いてしまう書き方はスクリプティング的である。Javaではこのようなことができない。</li>
+<li><code>os.walk</code>はJythonのメソッドである。ディレクトリのパスを引数にとり、返り値は３つ、ルート（すなわち指定したディレクトリのフルパス）、そのルート内に存在するディレクトリのリスト、及びそのルート内に存在するすべてのファイルのリストである。</li>
+</ul>
+
+<p><code>os.walk</code>の結果をforループで展開するのは、ディレクトリを再帰的に探索するためである。</p>
+
+<h2 id="toc_34">画像の扱い方</h2>
+
+<p>ここまでで、基本的な使い方を直感的に学んだ。以下はもうすこし詳しい（したがってわかりにくいかもしれない）解説である。</p>
+
+<p>JavaやPythonのプログラムは、多くのクラスによって構成されている。たとえば、これまで何度も登場したIJというクラスには、さまざまな基本的な機能がまとめられている。他にいくつか、重要なクラスを紹介する。</p>
+
+<h3 id="toc_35">IJクラス　-スタティックなアクセス</h3>
+
+<p>IJクラスにはスタティックなメソッドが多くリストされている。クラスとは、機能（メソッドと呼ばれる）や変数（フィールドと呼ばれる）をまとめたひとつのまとまりである。たとえば</p>
+
+<pre class="line-numbers"><code class="language-python">IJ.beep()</code></pre>
+
+<p>は、IJクラスの中のひとつのメッソッド<code>beep()</code>であり、これを実行すると音がなる。</p>
+
+<ul>
+<li>Javadocの使い方（口頭で解説）</li>
+</ul>
+
+<p>IJクラスのメソッドはほとんどが「スタティック」である。これは、クラスをインスタンス化しなくても、そのメソッドを使えることを意味している。インスタンス化とは、いわばそのクラスのスペックを鋳型とするクローンを作ることを意味しており、いくつも似たようなクローンを作ることができる。たとえば、ImageJでは、画像はすべて<code>ImagePlus</code>というクラスのインスタンスである。ことなる画像であっても、同じクラスに属している、ということである。画像の大きさはことなっていいても、幅と高さという属性をいずれも所持しており、こうした点において「同じクラス」なのである。</p>
+
+<h3 id="toc_36">コマンドレコーダ</h3>
+
+<p><code>IJ.run()</code>メソッドは、メニューの項目を指定して実行する。二番目の引数であるオプションは、通常であればダイアログボックスで入力する内容を指定する。</p>
+
+<h3 id="toc_37">ImagePlus</h3>
+
+<p>ImagePlusは画像そのものと画像の属性（スケールやmultitiff）などを含むクラスである。デスクトップに開いた画像オブジェクトをグラブする際にもImagePlusのオブジェクトを取得することになる。また慣例的なことであるが、変数はimpとすることが多い。</p>
+
+<pre class="line-numbers"><code class="language-python">imp = IJ.getImage()
+frames = imp.getStackSize()
+IJ.run(&quot;Set Measurements...&quot;, &quot;  mean redirect=None decimal=3&quot;)
+IJ.run(&quot;Clear Results&quot;);
+for i in range(frames):
+    imp.setSlice(i + 1)
+    IJ.run(&quot;Measure&quot;)</code></pre>
+
+<p>このコードではスタックの画像オブジェクト<code>imp</code>としてグラブし、そのスライスを一枚一枚めくりながら測定を行っている。</p>
+
+<h3 id="toc_38">ImageProcessor</h3>
+
+<p><code>ImageProcessor</code>は、<code>ImagePlus</code>の属性の一部であり、画像そのもののクラスである。さまざまな画像処理のアルゴリズムをメソッドとして所持している。実際にフィルタをかけたりするのはこのクラスのオブジェクトで行う。スタック画像の場合、<code>ImagePlus</code>のオブジェクトの中に複数の<code>ImageProcessor</code>オブジェクトが入っている、とかんがえるとよいだろう。</p>
+
+<h3 id="toc_39">輝度プロファイルの例</h3>
+
+<p>輝度プロファイルを得る場合には<code>ProfilePlot</code>クラスをインスタンス化する必要がある。このインスタンス化の際に、現在トップにある画像を指定すれば、そのまま輝度プロファイルを取得することができる。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.gui import ProfilePlot
+
+imp = IJ.getImage()
+pf = ProfilePlot(imp)
+profile = pf.getProfile()
+for val in profile:
+    print val</code></pre>
+
+<p>このスクリプトの結果をさらにCSVに出力してみる。Jythonのcsvパッケージが簡便なので使ってみる。</p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.gui import ProfilePlot
+import csv
+
+imp = IJ.getImage()
+pf = ProfilePlot(imp)
+profile = pf.getProfile()
+for val in profile:
+    print val
+f = open(&#39;/Users/miura/Desktop/prof.csv&#39;, &#39;wb&#39;)
+writer = csv.writer(f)
+for index, val in enumerate(profile):
+    writer.writerow([index, val])
+f.close()</code></pre>
+
+<h2 id="toc_40">PTAjをスクリプトから使う</h2>
+
+<p>ここで、新井さんにお願いして、GUIからの使い方を説明・実指導を行ってもらう。そののちにJythonからアクセスするスクリプトの作成と実行を学習する。</p>
+
+<ul>
+<li>サンプル画像リンク
+
+<ul>
+<li>軽量版（７フレームのみ。テストではこちらを使う）</li>
+<li><a href="https://www.dropbox.com/s/swa9baollgpr3qs/tconc10_16.tif">https://www.dropbox.com/s/swa9baollgpr3qs/tconc10_16.tif</a> [1M]</li>
+<li>重量版 (1000フレーム)</li>
+<li><a href="https://www.dropbox.com/s/d2loc5rfvsjp4ry/tconc-6.tif">https://www.dropbox.com/s/d2loc5rfvsjp4ry/tconc-6.tif</a> [133Mb]</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_41">PTAjのクラス群</h3>
+
+<p>PTAjもまた、多くのクラスから構成されている。</p>
+
+<p>PTAjのJavadocは次のリンク先。</p>
+
+<p><a href="http://cmci.github.io/projectPTAj/">http://cmci.github.io/projectPTAj/</a></p>
+
+<p>PTAjパッケージで最も重要なのはフロントエンドとして機能する<code>PTA</code>クラスと、バックエンドである<code>DetectParticle</code>クラスである。トラッキングやその結果の保持<code>DetectParticle</code>クラスが担っており、<code>PTA</code>クラスは全体の状態をGUIも含めて決定するスタティックなパラメータを多く保持している。とはいえ、<code>PTA</code>クラスは<code>noGUI</code>メソッドによって不可視化することで、スクリプトの中ではほとんど登場しない。</p>
+
+<h3 id="toc_42">１ファイルでMSDの解析</h3>
+
+<p>PTAjをJythonから使う最も単純なスクリプトは以下になる。大きく４つのステップに分けることができる。</p>
+
+<ol>
+<li>動画データをロードして、輝度の閾値を設定する。</li>
+<li>PTAの解析パラメータを設定する。</li>
+<li>PTAでトラッキングを行う。</li>
+<li>トラッキングの結果・MSD解析の結果を出力する。</li>
+</ol>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.gui import Roi
+from pta import PTA
+from pta.gui import ShowPdata
+from pta.track import DetectParticle
+from pta.data import PtaParam
+from java.util import ArrayList
+from ij.plugin.frame import ThresholdAdjuster
+from ij.process import ImageProcessor
+
+# set data path
+#datafilepath = &quot;/Users/miura/Dropbox/20130805_Osaka/data/transferrin-movement/tconc1_3.tif&quot;
+datafilepath = &quot;/Users/miura/Dropbox/20130805_Osaka/data/transferrin-movement/tconc10_16.tif&quot;
+
+# load data as an ImagePlus object
+imp = IJ.openImage(datafilepath)
+
+# default ROI = full frame
+scanAreaRoi = Roi(0,0,imp.getWidth(),imp.getHeight())
+
+# set intensity threshold to the iamge
+ip = imp.getProcessor()
+ht = ip.getAutoThreshold()
+ip.setThreshold(0, ht, ImageProcessor.RED_LUT)
+
+# **** Set PTA parameters ****
+
+PTA.setDetectionState(True)
+#PTA.setDebugMode()
+# set no GUI mode
+PTA.setNoGUI(True)
+
+# set Detection Parameters.
+# PtaParam.Builder(int roiSizex,int roiSizey,boolean do2dGaussfit)
+ptap = PtaParam.Builder(12,12, False).build()
+
+### more ways to customize paramters
+#ptap.setDo2dGaussfit(False)
+#ptap.setDo2dGaussfit(True) 
+#ptap.setMinIntensity(100.0)
+#ptap.setSearchPointIncrement(1)
+
+# **** Tracking ****
+
+# instantiate a DetectParticle object
+# DetectParticle(PtaParam ptap, ij.ImagePlus imp, ij.gui.Roi scanRoi, boolean nogui)
+dp = DetectParticle(ptap,imp,scanAreaRoi, True)
+
+# set range of frames to analyze
+dp.setStackRange(1, imp.getStackSize())
+
+# start threads. 
+dp.start()
+# wait till the processing finishes
+dp.join()
+# stop the thread. 
+dp.interrupt()
+
+PTA.setDetectionState(False)
+
+# **** output results ****
+
+# show detection results
+imp.show()
+
+# Particle lists
+#ll = dp.getalldplist()
+#print ll
+
+# track lists
+tracks = dp.getLinkedPointList()
+print &quot;=== tracks ===&quot;
+for t in tracks:
+   if len(t) &gt; 2: 
+      print t
+
+# MSD analysis
+# if &quot;Linear&quot;, then y = a + bx
+msds = dp.getMSDres(5.0, True)d
+print &quot;msd data size&quot;, msds.size()
+for msd in msds:
+   print &quot;ID&quot;, msd.getID(), &quot;A&quot;, msd.getA(), \
+   &quot;B&quot;, msd.getB(), &quot;Res&quot;, msd.getR()
+
+# TODO: write MSD values in a csv file. 
+# http://cmci.embl.de/documents/120206pyip_cooking/python_imagej_cookbook#saving_csv_file_data_table
+
+# discard the DetextParticle Object
+dp = None
+
+##Back to the GUI mode: without this line, PTA GUI will not showup from next time. 
+PTA.setNoGUI(False)</code></pre>
+
+<p><a href="https://gist.github.com/cmci/6138196">https://gist.github.com/cmci/6138196</a></p>
+
+<p>これに以下の機能を追加したものが次のスクリプトである。</p>
+
+<ul>
+<li>ファイルの読み込みをBioformat Tool経由でおこなう。</li>
+<li>バックグラウンドの除去を事前に行う。</li>
+<li>輝度閾値による二値化(Autothresholding)のアルゴリズムを選択できるようにする。</li>
+</ul>
+
+<pre class="line-numbers"><code class="language-python">
+from ij import IJ, Prefs
+from ij.gui import Roi
+from pta import PTA
+from pta.gui import ShowPdata
+from pta.track import DetectParticle
+from pta.data import PtaParam
+from java.util import ArrayList
+from ij.plugin.frame import ThresholdAdjuster
+from ij.process import ImageProcessor
+import os, csv
+from ij.plugin.filter import BackgroundSubtracter
+from fiji.threshold import Auto_Threshold
+from loci.plugins import BF
+
+&#39;&#39;&#39;
+a function for writing CSV files, 
+1. XY coordinates and sigma_x, sigma_y for each track
+2. timescale and MSD for each track. 
+&#39;&#39;&#39; 
+def CSVwrite(srcpath, msddata):
+    parentdirectory = os.path.dirname(srcpath)
+    filename = os.path.basename(srcpath)
+    basename = os.path.splitext(filename)[0]
+    for msd in msddata:
+        thisid = msd.getID()
+        coordsPath = os.path.join(parentdirectory, basename + &quot;_&quot; + str(int(thisid)) +&quot;_coords.csv&quot;)
+        msdPath = os.path.join(parentdirectory, basename + &quot;_&quot; + str(int(thisid)) + &quot;_msd.csv&quot;)
+        print coordsPath
+        print msdPath
+        f1 = open(coordsPath, &#39;wb&#39;)
+        writer = csv.writer(f1)
+        track = msd.getTrack()
+        for node in track:
+            writer.writerow([node.getCx(), node.getCy(), node.getParam()[1],node.getParam()[2]])
+        f1.close()
+
+        f2 = open(msdPath, &#39;wb&#39;)
+        writer = csv.writer(f2)
+        dtA = msd.getFullDFrames()
+        msdA = msd.getFullMSD()
+        for i in range(len(dtA)):
+            writer.writerow([dtA[i], msdA[i]])
+        f2.close()
+
+datafilepath = &quot;/Users/miura/Dropbox/20130805_Osaka/data/transferrin-movement/tconc10_16.tif&quot;
+#datafilepath = &quot;/Users/araiyoshiyuki/Desktop/spool-tub_2-2.tif&quot;
+
+# load data as an ImagePlus object
+#imp = IJ.openImage(datafilepath)
+imp = BF.openImagePlus(datafilepath)[0]
+
+# default ROI = full frame
+scanAreaRoi = Roi(0,0,imp.getWidth(),imp.getHeight())
+
+# ip = imp.getProcessor()
+IJ.run(imp,&quot;Subtract Background...&quot;, &quot;rolling=10 stack&quot;)
+# above IJ.run method could be written in a lower way like the following. 
+#bs = BackgroundSubtracter()
+#for frame in range(imp.getStackSize()):
+#   ip = imp.getStack().getProcessor(frame + 1)
+#   bs.rollingBallBackground(ip, 10.0, False, False, False, False, False)
+
+ip = imp.getProcessor()
+iphist = ip.getHistogram()
+Prefs.blackBackground = True
+# **** Auto Threshold Algorithm should be examined before running the script. 
+#lt = Auto_Threshold.Intermodes(iphist)
+#lt = Auto_Threshold.Triangle(iphist)
+lt = Auto_Threshold.Moments(iphist)
+ip.setThreshold(lt, ip.getMax(), ImageProcessor.RED_LUT)
+
+PTA.setDetectionState(True)
+#PTA.setDebugMode()
+# set no GUI mode
+PTA.setNoGUI(True)
+
+# set Detection Parameters
+ptap = PtaParam.Builder(12,12, False).build()
+
+### paramter customizations
+#ptap.setDo2dGaussfit(False)
+#ptap.setDo2dGaussfit(True) 
+#ptap.setMinIntensity(100.0)
+#ptap.setSearchPointIncrement(1)
+
+# instantiate a DetectParticle object
+dp = DetectParticle(ptap,imp,scanAreaRoi, True)
+
+# set range of frames to analyze
+dp.setStackRange(1, imp.getStackSize())
+
+# start threads. 
+dp.start()
+# wait till the processing finishes
+dp.join()
+# stop the thread. 
+dp.interrupt()
+
+PTA.setDetectionState(False)
+
+# show detection results
+imp.show()
+
+# Particle lists
+#ll = dp.getalldplist()
+#print ll
+
+# track lists
+tracks = dp.getLinkedPointList()
+for t in tracks: 
+   print t
+
+# MSD analysis
+msds = dp.getMSDres(5.0, True)
+print &quot;msd data size&quot;, msds.size()
+for msd in msds:
+   print msd.getID(), msd.getA(), msd.getB(), msd.getR()
+
+# TODO: write MSD values in a csv file. 
+# http://cmci.embl.de/documents/120206pyip_cooking/python_imagej_cookbook#saving_csv_file_data_table
+
+CSVwrite(datafilepath, msds)
+
+
+# discard the DetextParticle Object
+dp = None
+
+##Back to the GUI mode: without this line, PTA GUI will not showup from next time. 
+PTA.setNoGUI(False)</code></pre>
+
+<p><a href="https://gist.github.com/cmci/6166294">https://gist.github.com/cmci/6166294</a></p>
+
+<p><strong>解説</strong></p>
+
+<p>インポート文に続く</p>
+
+<pre><code>def CSVwrite(srcpath, msddata):</code></pre>
+
+<p>の<code>def</code>は、関数を宣言する。この関数はデータをCSVファイル形式で書き出すための関数。画像データのパスとMSDdataオブジェクトのリストを引数としている。</p>
+
+<h3 id="toc_43">複数のファイルの自動的な読み込みと解析</h3>
+
+<p>複数のファイルの大量解析は、一つのファイルだけを解析する場合の応用である。まずファイルシステムの特定のディレクトリに存在するファイルの名前をリストとして取得し、つぎのそのリストをループして、位置ループ毎に解析と結果の出力を行えばよい。ファイルが1つだけの場合の部分（前項参照）を関数にするとわかりやすくなるので、下記では<code>def core(datafilepath):</code>としてまとめてある。</p>
+
+<p>画像のタイプによって、スクリプトを調整する必要がある。次の点である。</p>
+
+<ul>
+<li>スクリプトの一部ではないが、著しいブリーチングが見られるならば、<code>[Image &gt; Adjust &gt; Bleach Correction]</code>のHistogram Matchingによって校正する。前処理である。</li>
+<li>背景除去(Background Subtraction)のローリング・ボールのサイズ。</li>
+<li>自動閾値設定のアルゴリズム。これは事前に手動で決定する。<code>[Image &gt; Adjust &gt; Auto Threshold]</code>でtry allを選択し、最適なアルゴリズムを選ぶ。これに応じて書き換える。</li>
+<li>DetectParticleコンストラクタの引数であるRoiのサイズ。シグナルが大きめならばそれに合わせて大きくしたりしたほうがよい。</li>
+<li><a href="https://gist.github.com/cmci/6166331">https://gist.github.com/cmci/6166331</a></li>
+</ul>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ, Prefs
+from ij.gui import Roi
+from ij.io import DirectoryChooser
+from ij.plugin.frame import ThresholdAdjuster
+from ij.process import ImageProcessor
+from ij.plugin.filter import BackgroundSubtracter
+from fiji.threshold import Auto_Threshold
+from loci.plugins import BF
+from pta import PTA
+from pta.gui import ShowPdata
+from pta.track import DetectParticle
+from pta.data import PtaParam
+from java.util import ArrayList
+
+import os, csv
+
+def CSVwrite(srcpath, msddata):
+    parentdirectory = os.path.dirname(srcpath)
+    filename = os.path.basename(srcpath)
+    basename = os.path.splitext(filename)[0]
+    for msd in msddata:
+        thisid = msd.getID()
+        coordsPath = os.path.join(parentdirectory, basename + &quot;_&quot; + str(int(thisid)) +&quot;_coords.csv&quot;)
+        msdPath = os.path.join(parentdirectory, basename + &quot;_&quot; + str(int(thisid)) + &quot;_msd.csv&quot;)
+        print coordsPath
+        print msdPath
+        f1 = open(coordsPath, &#39;wb&#39;)
+        writer = csv.writer(f1)
+        track = msd.getTrack()
+        for node in track:
+            writer.writerow([node.getCx(), node.getCy(), node.getParam()[1],node.getParam()[2]])
+        f1.close()
+
+        f2 = open(msdPath, &#39;wb&#39;)
+        writer = csv.writer(f2)
+        dtA = msd.getFullDFrames()
+        msdA = msd.getFullMSD()
+        for i in range(len(dtA)):
+            writer.writerow([dtA[i], msdA[i]])
+        f2.close()
+
+
+def core(datafilepath):
+    # load data as an ImagePlus object
+    #imp = IJ.openImage(datafilepath)
+    imp = BF.openImagePlus(datafilepath)[0]
+
+    # default ROI = full frame
+    scanAreaRoi = Roi(0,0,imp.getWidth(),imp.getHeight())
+
+    IJ.run(imp,&quot;Subtract Background...&quot;, &quot;rolling=10 stack&quot;)
+    #bs = BackgroundSubtracter()
+    #for frame in range(imp.getStackSize()):
+    #   ip = imp.getStack().getProcessor(frame + 1)
+    #   bs.rollingBallBackground(ip, 10.0, False, False, False, False, False) 
+    ip = imp.getProcessor()
+    #ht = ip.getAutoThreshold()
+    Prefs.blackBackground = True
+    iphist = imp.getProcessor().getHistogram()
+    #lt = Auto_Threshold.Intermodes(iphist)
+    #lt = Auto_Threshold.Triangle(iphist)
+    lt = Auto_Threshold.Moments(iphist) 
+    ip.setThreshold(lt, ip.getMax(), ImageProcessor.RED_LUT)
+    #ip.setThreshold(0, 111, ImageProcessor.RED_LUT)
+
+    PTA.setDetectionState(True)
+    #PTA.setDebugMode()
+    # set no GUI mode
+    PTA.setNoGUI(True)
+
+    # set Detection Parameters
+    ptap = PtaParam.Builder(16,16, False).build()
+
+    ### paramter customizations
+    #ptap.setDo2dGaussfit(False)
+    ptap.setDo2dGaussfit(True) 
+    #ptap.setMinIntensity(100.0)
+    ptap.setSearchPointIncrement(2)
+
+    # instantiate a DetectParticle object
+    dp = DetectParticle(ptap,imp,scanAreaRoi, True)
+
+    # set range of frames to analyze
+    dp.setStackRange(1, imp.getStackSize())
+
+    # start threads. 
+    dp.start()
+    # wait till the processing finishes
+    dp.join()
+    # stop the thread. 
+    dp.interrupt()
+
+    PTA.setDetectionState(False)
+
+    # show detection results
+    imp.show()
+
+    # Particle lists
+    #ll = dp.getalldplist()
+    #print ll
+
+
+
+    # track lists
+    tracks = dp.getLinkedPointList()
+    for t in tracks: 
+       print t
+
+    # MSD analysis
+    msds = dp.getMSDres(5.0, True)
+    print &quot;msd data size&quot;, msds.size()
+    for msd in msds:
+       print msd.getID(), msd.getA(), msd.getB(), msd.getR()
+
+    CSVwrite(datafilepath, msds)
+
+    # discard the DetextParticle Object
+    dp = None
+
+    ##Back to the GUI mode: without this line, PTA GUI will not showup from next time. 
+    PTA.setNoGUI(False)
+
+srcDir = DirectoryChooser(&quot;Choose!&quot;).getDirectory()
+IJ.log(&quot;directory: &quot;+srcDir)
+for root, directories, filenames in os.walk(srcDir):
+    for filename in filenames:
+        if filename.endswith(&quot;.tif&quot;):
+            path = os.path.join(root, filename)
+            IJ.log(path)
+            core(path)</code></pre>
+
+<h1 id="toc_44">拡散定数</h1>
+
+<h2 id="toc_45">MSD</h2>
+
+<h3 id="toc_46">細胞内の拡散定数について</h3>
+
+<p>熱力学的な計算に用いられる拡散定数は希薄な媒質の中を拡散する物質という理想的な条件を前提にしている。一方で、細胞内における分子の拡散はこれとはことなる様々な条件がある。Molecular Crowding といわれるように、ターゲットとなる分子以外の分子種が空間を占めており、その間隙を縫うように分子は拡散している。前島さんのセミナーを思い起こせばよいだろう。このことを考えると、例えば大きなサイズの分子は他の分子の存在に阻まれて拡散しにくいであろうし、一方で小さい分子は拡散しやすいであろう。また、「溶質と溶媒」という定義も曖昧な状況になる。我々は「細胞質」といういわば細胞内の媒質を想定しているが、上に説明したような理由でごちゃごちゃともののつまった媒質なので、とてもではないが希薄な環境とは言いがたい。たとえば、細胞質の粘性を拡散定数から測る、といった場合に、細胞質の粘性は分子の大きさによってことなることがLuby-Phelpsらによって報告されており、きわめて小さい場合にのみ、水と同程度の粘性とみなすことができることがわかっている(Luby-Phelpsの総説)。</p>
+
+<p>今回実習で使われた細胞膜上を拡散するTransferrinにはまた別の問題であるが似たような問題がある。細胞膜上には脂質だけではなくさまざまな分子が埋め込まれており、他の分子が拡散の物理的な障害になったりあるいは結合などによって拡散に対して負に働くため、&quot;純粋な拡散定数&quot;を推定することが難しく、物理的な障害による拡散定数の低下などを見込んだ値として「見かけの拡散定数(effective diffusion coeffecient)」という言葉が使われることが多い。こうしたことから楠見らによる初期の測定では、一番短い時間スケールから４フレーム分までの時間スケールのデータにのみ一次関数のフィッティングを行うという手段をとり、これを「マイクロ拡散定数」と呼んでより純粋な拡散定数であるとしている。20年前の論文であるが、古典的名作として殿堂入りしている論文である。ぜひとも参照されたい。</p>
+
+<p>マイクロ拡散定数</p>
+
+<p>Kusumi, A., Sako, Y., &amp; Yamamoto, M. (1993). Confined lateral diffusion of membrane receptors as studied by single particle tracking (nanovid microscopy). Effects of calcium-induced differentiation in cultured epithelial cells. Biophysical journal, 65(5), 2021–40. doi:10.1016/S0006-3495(93)81253-0 <a href="http://www.ncbi.nlm.nih.gov/pubmed/8298032">Link</a></p>
+
+<p></markdown></p>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p>以下、ブラケットに囲まれた文章は、メニューのヒエラルキーを示す。&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+
+<script type="text/javascript">
+self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{};var Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var i=r[e];if(2==arguments.length){a=arguments[1];for(var l in a)a.hasOwnProperty(l)&&(i[l]=a[l]);return i}var s={};for(var o in i)if(i.hasOwnProperty(o)){if(o==n)for(var l in a)a.hasOwnProperty(l)&&(s[l]=a[l]);s[o]=i[o]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=s)}),r[e]=s},DFS:function(e,n,a){for(var r in e)e.hasOwnProperty(r)&&(n.call(e,r,e[r],a||r),"Object"===t.util.type(e[r])?t.languages.DFS(e[r],n):"Array"===t.util.type(e[r])&&t.languages.DFS(e[r],n,r))}},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),i=0;a=r[i++];)t.highlightElement(a,e===!0,n)},highlightElement:function(a,r,i){for(var l,s,o=a;o&&!e.test(o.className);)o=o.parentNode;if(o&&(l=(o.className.match(e)||[,""])[1],s=t.languages[l]),a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=a.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l),s){var u=a.textContent;if(u){u=u.replace(/^(?:\r?\n|\r)/,"");var g={element:a,language:l,grammar:s,code:u};if(t.hooks.run("before-highlight",g),r&&self.Worker){var c=new Worker(t.filename);c.onmessage=function(e){g.highlightedCode=n.stringify(JSON.parse(e.data),l),t.hooks.run("before-insert",g),g.element.innerHTML=g.highlightedCode,i&&i.call(g.element),t.hooks.run("after-highlight",g)},c.postMessage(JSON.stringify({language:g.language,code:g.code}))}else g.highlightedCode=t.highlight(g.code,g.grammar,g.language),t.hooks.run("before-insert",g),g.element.innerHTML=g.highlightedCode,i&&i.call(a),t.hooks.run("after-highlight",g)}}},highlight:function(e,a,r){var i=t.tokenize(e,a);return n.stringify(t.util.encode(i),r)},tokenize:function(e,n){var a=t.Token,r=[e],i=n.rest;if(i){for(var l in i)n[l]=i[l];delete n.rest}e:for(var l in n)if(n.hasOwnProperty(l)&&n[l]){var s=n[l];s="Array"===t.util.type(s)?s:[s];for(var o=0;o<s.length;++o){var u=s[o],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),N=[p,1];b&&N.push(b);var O=new a(l,g?t.tokenize(m,g):m,h);N.push(O),w&&N.push(w),Array.prototype.splice.apply(r,N)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,i=0;r=a[i++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var i={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==i.type&&(i.attributes.spellcheck="true"),e.alias){var l="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(i.classes,l)}t.hooks.run("wrap",i);var s="";for(var o in i.attributes)s+=o+'="'+(i.attributes[o]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+s+">"+i.content+"</"+i.tag+">"},!self.document)return self.addEventListener?(self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code;self.postMessage(JSON.stringify(t.util.encode(t.tokenize(r,t.languages[a])))),self.close()},!1),self.Prism):self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism);
+</script>
+<script type="text/javascript">
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*?(\r?\n|$)/,lookbehind:!0},string:/"""[\s\S]+?"""|'''[\s\S]+?'''|("|')(\\?.)*?\1/,"function":{pattern:/((^|\s)def[ \t]+)([a-zA-Z_][a-zA-Z0-9_]*(?=\())/g,lookbehind:!0},keyword:/\b(as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|pass|print|raise|return|try|while|with|yield)\b/,"boolean":/\b(True|False)\b/,number:/\b-?(0[bo])?(?:(\d|0x[a-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+]|<=?|>=?|!|={1,2}|&{1,2}|\|?\||\?|\*|\/|~|\^|%|\b(or|and|not)\b/,punctuation:/[{}[\];(),.:]/};
+</script>
+<script type="text/javascript">
+Prism.hooks.add("after-highlight",function(e){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var a,n=1+e.code.split("\n").length,l=new Array(n);l=l.join("<span></span>"),a=document.createElement("span"),a.className="line-numbers-rows",a.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(a)}});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>practical_precision</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, 'Hiragino Kaku Gothic ProN', arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+</head>
+<body>
+<h1 id="toc_0">第三回少数性生物学トレーニングコース　画像解析(2)</h1>
+
+<p>三浦耕太　<a href="http://cmci.embl.de">http://cmci.embl.de</a><br>
+所属：　   </p>
+
+<ol>
+<li> 自然科学研究機構研究力推進本部欧州拠点</li>
+<li> 基礎生物学研究所</li>
+<li> EMBL・先端光学顕微鏡施設・分子細胞イメージングセンター（ドイツ）</li>
+</ol>
+
+<p>20150804,5 於　吹田・大阪大学産業科学研究所</p>
+
+<h2 id="toc_1">輝点の位置測定の精度</h2>
+
+<p>超解像度顕微鏡法では、画像中の輝点に2次元ガウス分布をフィットしてその位置をサブピクセルの解像度で測定し、この位置座標の点描(pointilism)によって精細な画像を再構成する。ここで注目するのは、フィットの結果得られる座標の精度である。</p>
+
+<p>フィッティングによる測定結果のクオリティは、正確さ（accuracy）と精度(precision)によって評価できる。</p>
+
+<p><strong>正確さ</strong>は、真の座標と、測定した座標の間の距離がその指標である。0ならば無論よいのだが、そもそも真の座標を知ることは、あまり簡単なことではない。</p>
+
+<p>例えば、重さであれば「真の重さ」とされる標準が存在し、それをどれだけ正確に測定できるか、ということで正確さを求めることができる。あるいは、pHの測定であれば、標準の溶液を使って、測定機器の正確度を求めることができる（心もとなくはあるが）。これらの例から、位置に関しては、真の座標が既知のサンプルの測定を行って測定結果を検討すればよいではないか、ということになるのだが、真の座標が分かっているサンプル・測定環境を用意すること自体が難しい。このため、その正確度の判定は困難であり、シミュレーション画像を使った方法が一般的である。またDNAオリガミ等を利用した方法が現在模索されている。</p>
+
+<p><strong>測定の精度</strong>は測定値自体がどの程度の誤差を持つか、という、平均誤差(standard error of the mean)に他ならない。測定結果が真値を反映しているかどうかにかかわらず、測定そのものの信頼性を評価するための数値である。超解像度顕微鏡法の輝点の測定精度は、輝点を構成する光子数が多ければ多いほど、精度が高まることが知られている。以下、もうすこし説明する。</p>
+
+<h2 id="toc_2">精度の計算</h2>
+
+<p>ガウス分布をフィッティングすることによって得られる位置情報の精度は次の式によって算出することが提唱されている (Thompson, 2002)。</p>
+
+<p>$$
+    \langle(\sigma)\rangle = \sqrt{\frac{s^{2}}{N}+\frac{a^{2}/12}{N}+\frac{4\sqrt{\pi} s^{3}b^{2}}{aN^{2}}}
+$$</p>
+
+<p>ここで、sはPSF（点像分布関数）のs.d.を、Nはフォトン数、aはピクセルサイズ, bは背景ノイズ（背景光と検出器ノイズを含む）を表している。ルートの中は三つの項の足し算になっているが、それぞれの項は</p>
+
+<ul>
+<li>第一項：　フォトンノイズによる誤差</li>
+<li>第二項：　離散化ノイズによる誤差</li>
+<li>第三項：　背景ノイズによる誤差</li>
+</ul>
+
+<p>に由来する誤差であり、その和が全体の平均誤差となる。</p>
+
+<p>この式の導き方は詳しい解説を新井さんが書いてくれたので参照にしてほしい。</p>
+
+<p>なお、二次元のガウス分布のフィッティングの場合、先ほどの式を一般化し、精度は次のような式になる。</p>
+
+<p>\[
+\langle(\sigma_{i})\rangle = \sqrt{\frac{s^{2}_{i}}{N}+\frac{a^{2}/12}{N}+\frac{8\pi s^{4}b^{2}}{a^{2}N^{2}}}
+\]</p>
+
+<p>iはxないしはy方向を表す。</p>
+
+<h2 id="toc_3">一次元の位置測定とその精度の推定</h2>
+
+<p>輝点の位置の測定は通常二次元ないしは三次元画像でおこなうが、ここでは一次元で測定を行うことで手順を単純にし、「キャプチャーした光子数が多ければ多いほど、精度が高まる」ことを実測で確認することを目的とする。</p>
+
+<p>測定の手順の流れは次のようである。</p>
+
+<ol>
+<li>画像の前処理。</li>
+<li>輝点をひとつ選ぶ</li>
+<li>Y軸に沿って投射を行い、x軸に沿った輝度のプロファイルを得る。</li>
+<li>この輝度のプロファイルを一次元ガウス分布関数でフィッティングする。ピークの位置と、分布の標準偏差を得る。標準誤差が「精度」となる。</li>
+<li>同じ測定をいくつかの輝点で行う。</li>
+<li>横軸に各輝点の総輝度（光子数に比例）、縦軸に精度をプロットする。</li>
+<li>Thompsonの結果にあるような右下がりのカーブになることを確認する。</li>
+</ol>
+
+<p>ステップ2と3は、スクリプトで自動化してある。</p>
+
+<h3 id="toc_4">画像の前処理</h3>
+
+<p>取得した画像はかなり高い輝度のベースラインになる。この部分を差し引くために、各フレームで輝度の平均値を取得し、この平均値を全てのピクセルから引き算する。このためのコードを以下に示す。</p>
+
+<p><a href="https://gist.github.com/cmci/be839c4dfb09b4cd395f">https://gist.github.com/cmci/be839c4dfb09b4cd395f</a></p>
+
+<pre class="line-numbers"><code class="language-python"># subtract mean
+from ij import IJ
+from ij.process import ImageStatistics as IS
+#import math
+
+imp = IJ.getImage()
+stack = imp.getStack()
+#stat = IS()
+for i in range(stack.getSize()):
+    ip = stack.getProcessor(i + 1)
+    stats = ip.getStatistics()
+    meanInt = stats.mean
+    ip.add(-1 * round(meanInt))
+imp.updateAndDraw()</code></pre>
+
+<p><strong>コードの解説</strong></p>
+
+<ol>
+<li>6行目：アクティブな画像をグラブ。</li>
+<li>7行目：ImageStackのインスタンスをstackとして取得</li>
+<li>9行目：各フレームを処理するためのループ。</li>
+<li>10行目：フレームのImageProcessorインスタンスをipとして取得</li>
+<li>11行目：ipの統計情報をImageStatisticsのインスタンスstatsとして取得。</li>
+<li>12行目：statsのフィールド値meanに平均輝度が格納されている。</li>
+<li>13行目：ipのピクセル値から、平均輝度を引く。</li>
+<li>14行目：impのインスタンスを再描画。</li>
+</ol>
+
+<p>さて、測定にはこの引き算を行った画像を用いるが（以下、&quot;測定画像&quot;と呼ぶ）、輝点を探しやすくするために、探索用の画像を以下の手順で用意する。</p>
+
+<ol>
+<li>測定画像を複製する。[Image &gt; Duplicate] （&quot;Duplicate Stack&quot;をチェックする）</li>
+<li>メディアンフィルタにより、ノイズを除去する。[Process &gt; Filters &gt; Median...] （Radius=2とする）。</li>
+<li>1-100フレーム、101-200フレームの最大輝度投射画像を作成する。[Image &gt; Stack &gt; Z Projection...] &#39;Maximum&#39;を選ぶ。フレーム範囲は上記の二種類。</li>
+<li>結果した投射画像が、探索用の画像である。</li>
+</ol>
+
+<h3 id="toc_5">輝点の探索と測定</h3>
+
+<p>探索用の画像から、輝点を選び、それを四角ROIで囲んで選択する。測定用の画像に戻り、同じ位置にROIを作成する。ショートカットはcommand-shift-E。メニューからだと<code>[Edit &gt; Selection &gt; Restore Selection]</code></p>
+
+<p>この状態で、以下のコード（gaussFitPrecision1D.py）を実行する。</p>
+
+<p><a href="https://gist.github.com/cmci/d3c8eadb2a69abf04858">https://gist.github.com/cmci/d3c8eadb2a69abf04858</a></p>
+
+<pre class="line-numbers"><code class="language-python">from ij import IJ
+from ij.gui import Plot
+from ij.measure import CurveFitter, ResultsTable
+
+from java.awt import Color
+import math, sys, jarray
+
+
+## function for getting pixel intensity profile projected along y-axis. 
+def yprojection(ip):
+    xprof = []
+    for i in range(ip.getWidth()):
+        col = [ip.getPixel(i, j) for j in range(ip.getHeight())]
+        #print col
+        xprof += [sum(col)]
+    return xprof
+
+## grab image. 
+
+imp = IJ.getImage()
+imgtitle = imp.getTitle()
+ww = imp.getWidth()
+hh = imp.getHeight()
+cf = imp.getSlice() 
+
+## get imageprosessor instance from ImagePlus instance
+## if ROI is set, then use that ROI. 
+
+iporg = imp.getProcessor()
+if iporg.getRoi() is not None:
+    ip = iporg.crop()
+    roi = iporg.getRoi()
+    rx = roi.x
+    ry = roi.y
+    rw = roi.width
+    rh = roi.height
+else:
+    ip = iporg
+    rx = 0
+    ry = 0
+    rw = ww
+    rh = hh
+    
+## projection along Y-axis, using the function defined above. 
+
+xprof = yprojection(ip)
+
+## prepare index array. 
+xval = range(0,len(xprof))
+
+## convert to java arrays. 
+xvalj = jarray.array(xval,  &#39;d&#39;)
+xprofj = jarray.array(xprof, &#39;d&#39;)
+
+## curve fitting. 
+cf = CurveFitter(xvalj, xprofj)
+cf.doFit(CurveFitter.GAUSSIAN)
+para = cf.getParams()
+offset = para[0]
+height = para[1]
+xpos = para[2]
+sd = para[3]
+R2 = cf.getFitGoodness()
+formula = cf.getFormula()
+print formula
+print &#39;a =&#39;, offset
+print &#39;b =&#39;, height
+print &#39;c =&#39;, xpos
+print &#39;d =&#39;, sd
+print &#39;R^2=&#39;, R2
+
+### total intensity within SD range
+xmin = int(math.floor(xpos - sd))
+xmax = int(math.floor(xpos + sd))
+
+print xmin, xmax
+
+totalint = 0
+for i in range(xmin, xmax):
+    totalint += int(xprofj[i] - round(offset))
+    
+print &#39;total intensity =&#39;, totalint
+
+if totalint &lt;= 0:
+    print &#39;no photon found&#39;
+    sys.exit()
+
+###### precision
+# camera pixel 6.5um
+# pixelsize 65nm
+
+cp = 6500.0
+pscale = 65.0
+background = 0.5 ## estimated from vacant space
+
+photons = round(totalint * 0.46) ## 0.46 from Arai
+print &#39;photons =&#39;, photons
+
+photonNoise = math.pow(sd*pscale, 2) / photons
+pixelationNoise = math.pow(pscale, 2) / 12.0 / photons
+backgroundNoise = 4 * math.pow(math.pi, 0.5) * \
+   math.pow(sd*pscale, 3) * math.pow(background, 2) / \
+   pscale / math.pow(photons, 2)
+
+print &#39;ph noise error&#39;, photonNoise, &#39;[nm^2]&#39;
+print &#39;pix noise error&#39;, pixelationNoise, &#39;[nm^2]&#39;
+print &#39;back noise error&#39;, backgroundNoise, &#39;[nm^2]&#39;
+
+precision = math.pow(photonNoise + pixelationNoise + backgroundNoise, 0.5)
+print &#39;precision&#39;, precision, &#39;[nm]&#39;
+print &#39;----&#39;
+print &#39;xlocation ± precision&#39;, xpos * pscale , &#39;±&#39;, precision, &#39;[nm]&#39;
+
+###### plotting
+
+
+xvalscaled = [x * pscale for x in xval]
+factor = 10
+fitx = range(len(xval) * factor)
+fitx =  [x * 1.0 / factor for x in fitx]
+fity = [cf.f(para, x) for x in fitx]
+fitxscaled = [x * pscale for x in fitx]
+
+    
+datamax = max(xprof) * 1.1
+datamin = min(xprof) * 0.9
+
+
+fitplot = Plot(&quot;x-profile Gaussian fit&quot;, &quot;x&quot;, &quot;sum of intensity&quot;)
+fitplot.setLimits(-1, xvalscaled[-1]+1, datamin, datamax)
+fitplot.setColor(Color.red)
+#fitplot.addPoints(xvalj, xprofj, Plot.CIRCLE)
+fitplot.addPoints(xvalscaled, xprof, Plot.CIRCLE)
+fitplot.setColor(Color.blue)
+#fitplot.addPoints(fitx, fity, Plot.LINE) 
+fitplot.addPoints(fitxscaled, fity, Plot.LINE) 
+fitplot.show()
+
+#### ResultsTable
+
+rt = ResultsTable.getResultsTable()
+cc = rt.getCounter()
+
+rt.setValue(&quot;image&quot;, cc, imgtitle)
+rt.setValue(&quot;rx&quot;, cc, rx)
+rt.setValue(&quot;ry&quot;, cc, ry)
+rt.setValue(&quot;rw&quot;, cc, rw)
+rt.setValue(&quot;rh&quot;, cc, rh)
+rt.setValue(&quot;offset&quot;, cc, offset)
+rt.setValue(&quot;height&quot;, cc, height)
+rt.setValue(&quot;xpos&quot;, cc, xpos)
+rt.setValue(&quot;sd&quot;, cc, sd)
+rt.setValue(&quot;R2&quot;, cc, R2)
+rt.setValue(&quot;totalInt&quot;, cc, totalint)
+rt.setValue(&quot;Photons&quot;, cc, photons)
+rt.setValue(&quot;scaledLocation&quot;, cc, xpos * pscale)
+rt.setValue(&quot;precision&quot;, cc, precision)
+
+rt.show(&#39;Results&#39;)</code></pre>
+
+<p>コードの解説をしよう。全体は157行のコードであるが、110行目あたりからは、グラフのプロットと、結果を表に出力するためのコードである。一番重要なのは、カーブフィッティングの部分と、その結果を使った計算の部分になる。カーブフィッティングは次の部分である。</p>
+
+<pre class="line-numbers"><code class="language-python">cf = CurveFitter(xvalj, xprofj)
+cf.doFit(CurveFitter.GAUSSIAN)
+para = cf.getParams()
+offset = para[0]
+height = para[1]
+xpos = para[2]
+sd = para[3]
+R2 = cf.getFitGoodness()
+formula = cf.getFormula()</code></pre>
+
+<p>CurveFitterのインスタンスを生成するコンストラクタが最初の行で、この生成の際に、xの配列と、yの配列を与える。なお、ここで使う配列はpythonの配列ではなくJavaの配列を使うことが必要となるため、事前にjarrayを使って変換を行っている。実際のフィッテングは二行目で行っている。引数は、フィットするモデル関数。その後の部分は結果の取得で、getParamsメソッドで返されるガウス分布の係数の値は配列になっているため、それぞれインデックスを指定して取り出している。面倒に見えるかもしれないが、このあとに続く精度の計算は、式がややこしいのでちゃんと名前をつけておいたほうが混乱が少ない。</p>
+
+<p>Resultsのウィンドウに表示される結果のうち、Precisionが精度、Photonsが光子数になる。</p>
+
+<p>暗いものもふくめて、輝点を少なくとも50点測定してデータを集める。なお、測定に失敗したら、Resultsのウィンドウで最後の行を右クリックし、データを削除すると良い。</p>
+
+<h3 id="toc_6">Thomposonのプロット</h3>
+
+<p>Resultsに集積した結果は、CSVファイルに保存してRなどでPrecision vs Photonsのプロットをするのが一番速いだろう。あるいはExcelでプロットすることも可能である。今回はせっかくなので、ImageJのプロット機能を使う。以下のコードを使って、プロットしよう。</p>
+
+<p><a href="https://gist.github.com/cmci/16377f3da76eed5cd455">https://gist.github.com/cmci/16377f3da76eed5cd455</a></p>
+
+<pre class="line-numbers"><code class="language-python">from ij.measure import ResultsTable
+from ij.gui import Plot
+from java.awt import Color
+import jarray
+
+rt = ResultsTable.getResultsTable()
+cc = rt.getCounter()
+
+photonA = []
+precisionA = []
+for i in range(cc):
+    photonA += [rt.getValue(&quot;Photons&quot;, i)]
+    precisionA += [rt.getValue(&quot;precision&quot;, i)]
+
+photonMax = max(photonA)
+precisionMax = max(precisionA)
+photonMin = min(photonA)
+precisionMin = min(precisionA)
+
+photonAj = jarray.array(photonA,  &#39;d&#39;)
+precisionAj = jarray.array(precisionA,  &#39;d&#39;)
+
+fitplot = Plot(&quot;Thompson Plot&quot;, &quot;Photons&quot;, &quot;Precision [nm]&quot;)
+fitplot.setLimits(photonMin*0.9, photonMax*1.1, precisionMin*0.9, precisionMax*1.1)
+fitplot.setColor(Color.red)
+fitplot.addPoints(photonAj, precisionAj, Plot.CIRCLE)
+fitplot.show()</code></pre>
+
+<h1 id="toc_7">参考文献</h1>
+
+<p>Thompson, R. E., Larson, D. R., &amp; Webb, W. W. (2002). Precise nanometer localization analysis for individual fluorescent probes. Biophysical Journal, 82(5), 2775–83. doi:10.1016/S0006-3495(02)75618-X</p>
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/javascript">
+self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{};var Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var i=r[e];if(2==arguments.length){a=arguments[1];for(var l in a)a.hasOwnProperty(l)&&(i[l]=a[l]);return i}var s={};for(var o in i)if(i.hasOwnProperty(o)){if(o==n)for(var l in a)a.hasOwnProperty(l)&&(s[l]=a[l]);s[o]=i[o]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=s)}),r[e]=s},DFS:function(e,n,a){for(var r in e)e.hasOwnProperty(r)&&(n.call(e,r,e[r],a||r),"Object"===t.util.type(e[r])?t.languages.DFS(e[r],n):"Array"===t.util.type(e[r])&&t.languages.DFS(e[r],n,r))}},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),i=0;a=r[i++];)t.highlightElement(a,e===!0,n)},highlightElement:function(a,r,i){for(var l,s,o=a;o&&!e.test(o.className);)o=o.parentNode;if(o&&(l=(o.className.match(e)||[,""])[1],s=t.languages[l]),a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=a.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l),s){var u=a.textContent;if(u){u=u.replace(/^(?:\r?\n|\r)/,"");var g={element:a,language:l,grammar:s,code:u};if(t.hooks.run("before-highlight",g),r&&self.Worker){var c=new Worker(t.filename);c.onmessage=function(e){g.highlightedCode=n.stringify(JSON.parse(e.data),l),t.hooks.run("before-insert",g),g.element.innerHTML=g.highlightedCode,i&&i.call(g.element),t.hooks.run("after-highlight",g)},c.postMessage(JSON.stringify({language:g.language,code:g.code}))}else g.highlightedCode=t.highlight(g.code,g.grammar,g.language),t.hooks.run("before-insert",g),g.element.innerHTML=g.highlightedCode,i&&i.call(a),t.hooks.run("after-highlight",g)}}},highlight:function(e,a,r){var i=t.tokenize(e,a);return n.stringify(t.util.encode(i),r)},tokenize:function(e,n){var a=t.Token,r=[e],i=n.rest;if(i){for(var l in i)n[l]=i[l];delete n.rest}e:for(var l in n)if(n.hasOwnProperty(l)&&n[l]){var s=n[l];s="Array"===t.util.type(s)?s:[s];for(var o=0;o<s.length;++o){var u=s[o],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),N=[p,1];b&&N.push(b);var O=new a(l,g?t.tokenize(m,g):m,h);N.push(O),w&&N.push(w),Array.prototype.splice.apply(r,N)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,i=0;r=a[i++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var i={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==i.type&&(i.attributes.spellcheck="true"),e.alias){var l="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(i.classes,l)}t.hooks.run("wrap",i);var s="";for(var o in i.attributes)s+=o+'="'+(i.attributes[o]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+s+">"+i.content+"</"+i.tag+">"},!self.document)return self.addEventListener?(self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code;self.postMessage(JSON.stringify(t.util.encode(t.tokenize(r,t.languages[a])))),self.close()},!1),self.Prism):self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism);
+</script>
+<script type="text/javascript">
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*?(\r?\n|$)/,lookbehind:!0},string:/"""[\s\S]+?"""|'''[\s\S]+?'''|("|')(\\?.)*?\1/,"function":{pattern:/((^|\s)def[ \t]+)([a-zA-Z_][a-zA-Z0-9_]*(?=\())/g,lookbehind:!0},keyword:/\b(as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|pass|print|raise|return|try|while|with|yield)\b/,"boolean":/\b(True|False)\b/,number:/\b-?(0[bo])?(?:(\d|0x[a-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+]|<=?|>=?|!|={1,2}|&{1,2}|\|?\||\?|\*|\/|~|\^|%|\b(or|and|not)\b/,punctuation:/[{}[\];(),.:]/};
+</script>
+<script type="text/javascript">
+Prism.hooks.add("after-highlight",function(e){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var a,n=1+e.code.split("\n").length,l=new Array(n);l=l.join("<span></span>"),a=document.createElement("span"),a.className="line-numbers-rows",a.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(a)}});
+</script>
+</body>
+
+</html>

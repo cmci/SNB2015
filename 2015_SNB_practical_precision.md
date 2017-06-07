@@ -331,6 +331,7 @@ photonAj = jarray.array(photonA,  'd')
 precisionAj = jarray.array(precisionA,  'd')
 
 fitplot = Plot("Thompson Plot", "Photons", "Precision [nm]")
+fitplot.setAxes(True, True, True, True, False, False, 1, 1)
 fitplot.setLimits(photonMin*0.9, photonMax*1.1, precisionMin*0.9, precisionMax*1.1)
 fitplot.setColor(Color.red)
 fitplot.addPoints(photonAj, precisionAj, Plot.CIRCLE)
